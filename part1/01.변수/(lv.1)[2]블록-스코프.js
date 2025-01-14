@@ -10,14 +10,14 @@
  */
 
 function blockScopeTest() {
-  {
-    // 블록 내부에 변수 선언
-    // var u = 2;
-    // let w = 1;
-  }
-  // 블록 외부에서 변수 접근
-  // console.log(u); // 2
-  // console.log(w); // ReferenceError
+	{
+		// 블록 내부에 변수 선언
+		var u = 2;
+		let w = 1;
+	}
+	// 블록 외부에서 변수 접근
+	console.log(u); // 2
+	console.log(w); // ReferenceError
 }
 
 // export 를 수정하지 마세요.

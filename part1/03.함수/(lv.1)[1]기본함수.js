@@ -11,7 +11,8 @@
  */
 
 function greet() {
-  // TODO
+	// TODO
+	return 'Hello, World!';
 }
 
 // export 를 수정하지 마세요.

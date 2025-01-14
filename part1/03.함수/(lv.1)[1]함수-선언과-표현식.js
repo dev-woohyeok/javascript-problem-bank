@@ -6,11 +6,13 @@
  */
 
 function square(x) {
-  // TODO
+	// TODO
+	return x * x;
 }
 
-// TODO
-let cube;
+let cube = function (x) {
+	return x * x * x;
+};
 
 // export 를 수정하지 마세요.
 export { square, cube };

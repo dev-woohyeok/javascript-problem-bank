@@ -7,10 +7,10 @@
  */
 
 function hoistingTest() {
-  // TODO:
-  //      console.log(d);
-  //       var d = 5;
-  //      console.log(d);
+	// TODO:
+	console.log(d);
+	var d = 5;
+	console.log(d);
 }
 
 // export 를 수정하지 마세요.

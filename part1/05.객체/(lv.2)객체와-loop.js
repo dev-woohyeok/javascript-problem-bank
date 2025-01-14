@@ -9,7 +9,13 @@
  * @returns {number}
  */
 function countProperties(obj) {
-  // TODO
+	// TODO
+	// let arr = [];
+	// for (const key in obj) {
+	// 	arr.push(key);
+	// }
+
+	return Object.keys(obj).length;
 }
 
 export { countProperties };
