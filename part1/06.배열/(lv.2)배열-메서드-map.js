@@ -9,7 +9,8 @@
  */
 
 function squareElements() {
-  // TODO
+	// TODO
+	return arr.map((el) => el * el);
 }
 
 // export를 수정하지 마세요.

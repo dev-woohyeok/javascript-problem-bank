@@ -10,7 +10,8 @@
  * @returns {number} 배열 원소의 합
  */
 function sumArray(arr) {
-  // TODO
+	// TODO
+	return arr.reduce((acc, cur) => acc + cur, 0);
 }
 
 // export를 수정하지 마세요.
