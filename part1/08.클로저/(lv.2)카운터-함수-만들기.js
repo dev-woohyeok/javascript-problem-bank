@@ -11,7 +11,18 @@
  * @returns {{ increase: Function, decrease: Function, currentValue: Function }}
  */
 function createCounter() {
-  let count = 0;
+	let count = 0;
+	return {
+		increase: function () {
+			count++;
+		},
+		decrease: function () {
+			count--;
+		},
+		currentValue: function () {
+			return count;
+		},
+	};
 }
 
 // export를 수정하지 마세요.
