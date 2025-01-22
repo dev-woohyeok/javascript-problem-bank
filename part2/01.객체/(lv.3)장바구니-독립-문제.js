@@ -11,24 +11,28 @@
 
 // TODO: 함수를 작성하세요 (예: fixCartReferenceIssue)
 function fixCartReferenceIssue() {
-  const userACart = {
-    items: [
-      { name: "키보드", price: 30000 },
-      { name: "마우스", price: 20000 },
-    ],
-  };
+	const userACart = {
+		items: [
+			{ name: '키보드', price: 30000 },
+			{ name: '마우스', price: 20000 },
+		],
+	};
 
-  // TODO: userBCart가 userACart와 독립된 복사본을 가지도록 해야 함
-  let userBCart;
+	// TODO: userBCart가 userACart와 독립된 복사본을 가지도록 해야 함
+	let userBCart = JSON.parse(JSON.stringify(userACart));
 
-  const coupon = 5000;
+	const coupon = 5000;
 
-  applyCoupon(userBCart, coupon);
-  function applyCoupon(cart, discount) {
-    // TODO
-  }
+	applyCoupon(userBCart, coupon);
+	function applyCoupon(cart, discount) {
+		// TODO
+		cart.items = cart.items.map((item) => ({
+			...item,
+			price: item.price - discount,
+		}));
+	}
 
-  return { userACart, userBCart };
+	return { userACart, userBCart };
 }
 
 // export를 수정하지 마세요.
