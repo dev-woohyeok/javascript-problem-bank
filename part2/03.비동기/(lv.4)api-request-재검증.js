@@ -16,23 +16,25 @@
  * @returns {Promise<string>}
  */
 
-let currentToken = "expired";
+let currentToken = 'expired';
 
 async function refreshToken() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("newToken");
-    }, 10);
-  });
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve('newToken');
+		}, 10);
+	});
 }
 
 async function fetch(endpoint, token) {
-  return Promise.resolve(`fetched data from ${endpoint} with token ${token}`);
+	return Promise.resolve(`fetched data from ${endpoint} with token ${token}`);
 }
 
 async function apiRequest(endpoint, token = currentToken) {
-  // TODO: currentToken이 "expired"이면 refreshToken() 후 재요청,
-  //       currentToken이 "valid"면 바로 fetch
+	// TODO: currentToken이 "expired"이면 refreshToken() 후 재요청,
+	//       currentToken이 "valid"면 바로 fetch
+	if (token === 'expired') currentToken = await refreshToken();
+	return fetch(endpoint, currentToken);
 }
 
 // export를 수정하지 마세요.
