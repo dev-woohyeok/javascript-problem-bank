@@ -9,7 +9,10 @@
  * @returns {number}
  */
 
-function factorial(n) {}
+function factorial(n) {
+	if (n <= 1) return 1;
+	return n * factorial(n - 1);
+}
 
 // export 를 수정하지 마세요.
 export { factorial };

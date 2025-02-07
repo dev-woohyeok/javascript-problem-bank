@@ -10,6 +10,14 @@
  * @returns {object}
  */
 
-function parseQueryString(queryString) {}
+function parseQueryString(queryString) {
+	const query = queryString.slice(1);
+	const queryArr = query.split('&');
+	return queryArr.reduce((acc, cur) => {
+		const [key, value] = cur.split('=');
+		if (key) acc[key] = value || '';
+		return acc;
+	}, {});
+}
 
 export { parseQueryString };

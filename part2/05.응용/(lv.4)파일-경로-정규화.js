@@ -12,7 +12,29 @@
  * @returns {string}
  */
 
-function normalizePath(path) {}
+function normalizePath(path) {
+	const pathArr = path.split('/');
+	let _normalizePath = pathArr
+		.reduce((acc, cur) => {
+			if (cur === '' || cur === '.') return acc;
+			if (cur === '..') acc.length > 0 && acc.pop();
+			else acc.push(cur);
+			return acc;
+		}, [])
+		.join('/');
+
+	// '.' 는 무시, '/' 로 시작하면 추가
+	if (path.startsWith('/') && !path.startsWith('.')) {
+		_normalizePath = '/' + _normalizePath;
+	}
+
+	// 끝에 '/' 가 있으면 유지해야하며 '/' 가 없는 경우는 예외
+	if (path.endsWith('/') && _normalizePath !== '/') {
+		_normalizePath += '/';
+	}
+
+	return _normalizePath;
+}
 
 // export 를 수정하지 마세요.
 export { normalizePath };

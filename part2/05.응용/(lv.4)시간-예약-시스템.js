@@ -24,7 +24,17 @@
  */
 
 // TODO: scheduleNextAvailableTime 함수를 작성하세요.
-function scheduleNextAvailableTime(reservations, timeLength) {}
+function scheduleNextAvailableTime(reservations, timeLength) {
+	// reservations 는 예약 된 시간들, timeLength 는 예약 길이
+	// 반환해야하는 값은 예약가능한 가장 이른 시점 (최종 반환값)
+	if (reservations.length === 0) return 0;
+	const availableTime = reservations.reduce((acc, cur, idx) => {
+		if (idx === 0) return cur.end;
+		if (acc + timeLength <= cur.start) return acc;
+		return cur.end;
+	}, 0);
+	return availableTime;
+}
 
 // export 를 수정하지 마세요.
 export { scheduleNextAvailableTime };

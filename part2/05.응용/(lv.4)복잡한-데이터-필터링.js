@@ -36,6 +36,16 @@
  * @returns {Array}
  */
 
-function filterComplexData(data, conditions) {}
+function filterComplexData(data, conditions) {
+	return data.filter((item) => {
+		return Object.keys(conditions).every((key) => {
+			const keys = key.split('.'); // 중첩 프로퍼티 추출
+			const value = keys.reduce((acc, cur) => acc[cur], item); // 중첩 프로퍼티 값 추출
+			// 필터링 값이 제대로 필터링 됬는지 여부 판단
+			if (Array.isArray(value)) return value.includes(conditions[key]);
+			return value === conditions[key];
+		});
+	});
+}
 
 export { filterComplexData };

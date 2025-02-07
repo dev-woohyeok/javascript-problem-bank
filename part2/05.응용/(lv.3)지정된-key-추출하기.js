@@ -11,7 +11,12 @@
  * @returns {object}
  */
 
-function pickKeys(obj, keys) {}
+function pickKeys(obj, keys) {
+	return keys.reduce((acc, key) => {
+		if (obj[key] !== undefined) acc[key] = obj[key];
+		return acc;
+	}, {});
+}
 
 // export 를 수정하지 마세요.
 export { pickKeys };
